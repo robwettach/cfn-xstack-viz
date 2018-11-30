@@ -1,0 +1,15 @@
+{
+  "name": "cfn-xstack-viz",
+  "version": "1.0.0",
+  "description": "Visualize cross-stack CloudFormation dependencies",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "cloudformation",
+    "graphviz"
+  ],
+  "author": "Rob Wettach <rob@robwettach.com>",
+  "license": "MIT"
+}
