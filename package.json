@@ -6,10 +6,17 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "bin": {
+    "cfn-xstack-viz": "./cli.js"
+  },
   "keywords": [
     "cloudformation",
     "graphviz"
   ],
   "author": "Rob Wettach <rob@robwettach.com>",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "aws-sdk": "^2.368.0",
+    "graphviz": "0.0.8"
+  }
 }
