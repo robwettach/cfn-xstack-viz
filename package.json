@@ -18,5 +18,9 @@
   "dependencies": {
     "aws-sdk": "^2.368.0",
     "graphviz": "0.0.8"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/robwettach/cfn-xstack-viz"
   }
 }
