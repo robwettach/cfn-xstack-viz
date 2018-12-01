@@ -34,7 +34,7 @@ module.exports = async function renderDependencies(outFileName) {
     }
   });
 
-  if (g.edgeCount > 0) {
+  if (g.edgeCount() > 0) {
     g.render("png", outFileName);
     console.log(`Rendered stack dependencies to ${outFileName}`);
   } else {
