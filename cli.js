@@ -1,9 +1,12 @@
 #!/usr/bin/env node
 const renderDependencies = require('./index');
+const commandLineArgs = require('command-line-args');
 
-if (process.argv.length < 3) {
-  console.log("Missing required parameter: output file name");
-  process.exit(1);
-} else {
-  renderDependencies(process.argv[2]);
-}
+const optionDefinitions = [
+  { name: 'verbose', alias: 'v', type: Boolean },
+  { name: 'output', alias: 'o', type: String, defaultOption: true }
+]
+
+let options = commandLineArgs(optionDefinitions);
+renderDependencies(options)
+  .catch(console.error);

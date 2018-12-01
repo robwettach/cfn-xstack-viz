@@ -17,6 +17,7 @@
   "license": "MIT",
   "dependencies": {
     "aws-sdk": "^2.368.0",
+    "command-line-args": "^5.0.2",
     "graphviz": "0.0.8"
   },
   "repository": {
