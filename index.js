@@ -13,8 +13,8 @@ async function asyncForEach(array, callback) {
 }
 
 const DEFAULT_OPTIONS = {
-
-}
+  label: false
+};
 
 module.exports = async function renderDependencies(fileNameOrOptions) {
   let options;
@@ -50,7 +50,11 @@ module.exports = async function renderDependencies(fileNameOrOptions) {
       var imports = (await cfn.listImports({ExportName: e.name}).promise()).Imports;
       log(`Found ${imports.length} Imports for ${e.name}`);
       imports.forEach(i => {
-        g.addEdge(e.stackName, i, {label: e.name});
+        const edgeOptions = {};
+        if (options.label) {
+          edgeOptions.label = e.name;
+        }
+        g.addEdge(e.stackName, i, edgeOptions);
       })
     } catch (ex) {
       // Ignore exceptions that an export isn't imported anywhere
