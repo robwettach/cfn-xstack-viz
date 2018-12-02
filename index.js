@@ -60,6 +60,7 @@ module.exports = async function renderDependencies(fileNameOrOptions) {
     } catch (ex) {
       // Ignore exceptions that an export isn't imported anywhere
       log(`No Imports for ${e.name}`);
+      addEdge(options, e, "None");
     }
   }));
 
