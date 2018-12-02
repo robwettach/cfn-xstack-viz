@@ -8,7 +8,8 @@ const g = GraphViz.digraph("G");
 
 const DEFAULT_OPTIONS = {
   label: false,
-  expand: false
+  expand: false,
+  include: false
 };
 
 function buildOptions(fileNameOrOptions) {
@@ -35,9 +36,11 @@ function buildOptions(fileNameOrOptions) {
 module.exports = async function renderDependencies(fileNameOrOptions) {
   let [options, log] = buildOptions(fileNameOrOptions);
 
-  var stackNames = (await cfn.listStacks().promise()).StackSummaries.map(s => s.StackName);
-  log(`Found ${stackNames.length} Stacks`);
-  stackNames.forEach(n => g.addNode(n));
+  if (options.include) {
+    var stackNames = (await cfn.listStacks().promise()).StackSummaries.map(s => s.StackName);
+    log(`Found ${stackNames.length} Stacks`);
+    stackNames.forEach(n => g.addNode(n));
+  }
 
   var exports = (await cfn.listExports().promise()).Exports.map(e => {
     return {
