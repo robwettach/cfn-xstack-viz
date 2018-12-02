@@ -1,6 +1,6 @@
 {
   "name": "cfn-xstack-viz",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Visualize cross-stack CloudFormation dependencies",
   "main": "index.js",
   "scripts": {
